@@ -1,13 +1,14 @@
 {
     "compilerOptions": {
       "target": "es6",
-      "module": "commonjs",
+      "module": "esnext",
+      "moduleResolution": "node",
       "declaration": true,
       "outDir": "./dist",
       "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true
     },
-    "include": ["*.ts"],
-    "exclude": ["node_modules"]
-}
+    "include": ["*.ts", "api/*.ts", "sdk.ts"],
+    "exclude": ["node_modules", "dist"]
+  }

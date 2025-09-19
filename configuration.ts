@@ -162,20 +162,17 @@ export class ApiSDK {
         return config;
     });
     
-    // Response interceptor: Check for new token and update (backend auto-refreshes via session_id cookie)
     this.axiosInstance.interceptors.response.use((response: AxiosResponse) => {
-        const newToken = response.data.newToken || response.headers['x-new-token'];  // Adjust based on exact backend format
+        const newToken = response.data.newToken || response.headers['Authorization'];
         if (newToken) {
-        this.setToken(newToken.replace('Bearer ', ''));  // Strip 'Bearer ' if present
+        this.setToken(newToken.replace('Bearer ', ''));
         console.log('Token automatically updated via backend refresh');
         }
         return response;
     }, (error) => {
-        // If 401, it's likely a truly invalid session (e.g., logged out); no auto-refresh possible
         if (error.response?.status === 401) {
         console.error('Authentication failed - session expired');
-        // Optional: Emit event or callback to app for login redirect
-        // e.g., window.location.href = '/login';
+        // TODO: emit event or callback to app for login redirect
         }
         return Promise.reject(error);
     });

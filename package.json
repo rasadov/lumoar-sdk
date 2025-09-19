@@ -3,7 +3,7 @@
     "@openapitools/openapi-generator-cli": "^2.23.4",
     "openapi-generator-cli": "^1.0.0"
   },
-  "name": "sdk",
+  "name": "@rasadov/sdk",
   "version": "1.0.0",
   "description": "Lumoar API SDK",
   "main": "index.js",
@@ -20,7 +20,14 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rasadov/lumoar-sdk.git"
+  },
+  "keywords": ["api", "sdk", "lumoar", "typescript"],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Rauf Asadov",
   "license": "ISC"
 }
