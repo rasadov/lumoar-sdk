@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.23.4",
+    "openapi-generator-cli": "^1.0.0"
+  },
+  "name": "sdk",
+  "version": "1.0.0",
+  "description": "Lumoar API SDK",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "axios": "^1.12.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "author": "Rauf Asadov",
+  "license": "ISC"
+}
